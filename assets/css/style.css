@@ -40,8 +40,10 @@ p{
 }
 
 #battlefield{
+	width: 540px;
+	padding-top: 60px;
 	float: left;
-	margin-left: 200px;
+	/*margin-left: 200px;*/
 	text-align: center;
 }
 
@@ -52,7 +54,7 @@ p{
 
 .play{
 	background-color: #75d7ea;
-	width: 120px;
+	width: 130px;
 	border-radius: 5px;
 
 }
@@ -66,6 +68,7 @@ p{
 }
 
 button{
+	margin:5px;
 	background-color: black;
 	font-family:;
 	color: white;

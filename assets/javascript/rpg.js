@@ -26,8 +26,8 @@ function reset(){
   '<p>click on the character you want to play</p>');
   $("#hero").html("");
   $("#archnemesis").html("");
-  $("#attackvis").hide();
-  $("#battlefield").html('<h2>Battlefield</h2>');
+  $("#battlefield").hide();//$("#attackvis").hide();
+  //$("#battlefield").html('<h2>Battlefield</h2>');
   //when the game is reset the attack button no longer works
 };
 
@@ -37,7 +37,7 @@ function playBtn(idword){
       Btn.addClass("playagain");
       Btn.attr("id", idword);
       Btn.text(idword);
-      $("#battlefield").append(Btn);
+      $("#gameOver").append(Btn);
 };
 
 getStrength();
@@ -66,7 +66,7 @@ console.log(Object.values(charstrength));
        'src="images/'+nemesis+'.jpg" alt="this is a character">' +
        ' <p class="points">points: <div id="nemesispnts">150</div> </p></div>');
 
-      $("#attackvis").show();
+      $("#battlefield").show();
     }
 });
 
@@ -107,10 +107,10 @@ $("#attack").on("click", function() {
   //$("#battlefield").append("<p>ATTACK!</p>");
 
   if(heropnts<=0){
-    $("#battlefield").html('<h2>game over!</h2>');
-    $("#battlefield").append("<p>Play Again?</p>");
+    $("#battlefield").append('<div id="gameOver"><h2>game over!</h2><p>Play Again?</p></div>');
     playBtn("yes");
     $("#yes").on("click", function (){
+        $("#gameOver").remove();
         reset();
     })
     playBtn("no");

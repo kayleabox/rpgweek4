@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rpg</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+</head>
+<body>
+<header>
+	<h1>Spirited Away Game</h1>
+</header>
+
+
+<div id="selectChar">
+	<!-- at start of game/ on load put images/sprites here that user can choose from -->
+
+	<div id="characters"><h2>Characters</h2>
+	<p>click on the character you want to play</p></div>
+	<!--	<div class="char"></div>-->
+	<button class="char" id="ChihiroOgino" type="button" value ="chihiro">
+		<img class="charimg" src="images/chihiro.jpg" alt="this is a character">
+	</button>
+	<button class="char" id="Haku" type="button" value="haku">
+		<img class="charimg" src="images/haku.jpg" alt="this is a character">
+	</button>
+	<button class="char" id="Yubaba" type="button" value="yubaba">
+		<img class="charimg" src="images/yubaba.jpg" alt="this is a character">
+	</button>
+	<button class="char" id="NoFace" type="button" value="noface">
+		<img class="charimg" src="images/noface.jpg" alt="this is a character">
+	</button>
+	<button class="char" id="Boh" type="button" value="boh">
+		<img class="charimg" src="images/boh.jpg" alt="this is a character">
+	</button>			
+</div>
+
+<div id="hero">
+	<!-- use jquery to move the user selected character to this div-->
+
+</div>
+
+<div id="battlefield">
+	<h2>Battlefield</h2>
+	<div id ="attackvis" style="display: none;">
+	<p>click to attack your nemesis!</p>
+	<button id="attack" type="button">attack</button>
+	</div>
+</div>
+
+<div id="archnemesis" class="nem">
+	<!-- use jquery to move the selected nemesis to this area for battle-->
+
+</div>
+
+
+<script src="javascript/rpg.js"></script>
+</body>
+</html>

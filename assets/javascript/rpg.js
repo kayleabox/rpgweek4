@@ -67,6 +67,7 @@ console.log(Object.values(charstrength));
        ' <p class="points">points: <div id="nemesispnts">150</div> </p></div>');
 
       $("#battlefield").show();
+      $("#attack").show();
     }
 });
 
@@ -107,6 +108,7 @@ $("#attack").on("click", function() {
   //$("#battlefield").append("<p>ATTACK!</p>");
 
   if(heropnts<=0){
+    $("#attack").hide();
     $("#battlefield").append('<div id="gameOver"><h2>game over!</h2><p>Play Again?</p></div>');
     playBtn("yes");
     $("#yes").on("click", function (){

@@ -1,17 +1,20 @@
 body{
 	width: 800px;
+	background-color: #3167e2;
 	height:auto;
 	margin:auto;
+	font-family: 'Merriweather', serif;
 }
 
 header{
+	color:white;
 	text-align: center;
 }
 
 #container{
-	background-image: url("images/bathhouse.jpg");
-	background-repeat: no-repeat;
-	background-size: 793px 421px;
+	width: 800px;
+	background-color: #3167e2;
+	margin:auto;
 }
 
 h2{
@@ -19,7 +22,12 @@ h2{
 }
 
 p{
-	margin:0;
+	font-size: 80%;
+	margin: 0;
+}
+
+#characters{
+	color:white;
 }
 
 .char{
@@ -40,10 +48,15 @@ p{
 }
 
 #battlefield{
-	width: 540px;
+	width: 520px;
+	height:265px;
+	background-image: url("../../images/bathhouse.jpg");
+	background-repeat: no-repeat;
+	background-size: 500px 265px;
 	padding-top: 60px;
 	float: left;
-	/*margin-left: 200px;*/
+	margin-left: 20px;
+	color: #b70303;
 	text-align: center;
 }
 

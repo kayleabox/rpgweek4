@@ -51,10 +51,10 @@ console.log(Object.values(charstrength));
     //this about adding another else statement to handle extra clicks
     if (hero === undefined){
       hero = this.value;
-      $("#hero").append('<h2>Hero</h2><div class="play"><img class="charimg" src="images/'
+      $("#hero").append('<h2>Hero</h2><div style= "background-color: #75d7ea;" class="play"><img class="charimg" src="images/'
         +hero+'.jpg" alt="this is a character"> <p class="points">points:'+
-        ' <div id="heropnts">150</div> </p></div>');
-      
+        ' <div id="heropnts" class="points">150</div> </p></div>');
+
       $("#characters").html('<div id="enemies"> <h2>Enemies</h2>' +
         '<p>pick a nemesis to battle to the death</p> </div>');
     }
@@ -62,9 +62,9 @@ console.log(Object.values(charstrength));
       //if it is not the first char selected it is the nemesis
 
       nemesis = this.value;
-      $("#archnemesis").html('<h2>Nemesis</h2><div class="play"><img class="charimg"' +
+      $("#archnemesis").html('<h2>Nemesis</h2><div style= "background-color: #b70303;" class="play"><img class="charimg"' +
        'src="images/'+nemesis+'.jpg" alt="this is a character">' +
-       ' <p class="points">points: <div id="nemesispnts">150</div> </p></div>');
+       ' <p class="points">points: <div id="nemesispnts" class="points">150</div> </p></div>');
 
       $("#battlefield").show();
       $("#attack").show();

@@ -1,6 +1,8 @@
 body{
 	width: 800px;
-	background-color: #3167e2;
+	/*background-color: #3167e2;*/
+	background-image: url("../../images/trainInWater.png");
+	border-image-repeat: no-repeat;
 	height:auto;
 	margin:auto;
 	font-family: 'Merriweather', serif;
@@ -13,7 +15,7 @@ header{
 
 #container{
 	width: 800px;
-	background-color: #3167e2;
+	/*background-color: #3167e2;*/
 	margin:auto;
 }
 
@@ -43,6 +45,7 @@ p{
 }
 
 #hero{
+	color:#75d7ea;
 	float:left;
 	text-align: center;
 }
@@ -50,23 +53,26 @@ p{
 #battlefield{
 	width: 520px;
 	height:265px;
-	background-image: url("../../images/bathhouse.jpg");
+	background-image: url("../../images/bathhouse2.jpg");
 	background-repeat: no-repeat;
 	background-size: 500px 265px;
 	padding-top: 60px;
 	float: left;
 	margin-left: 20px;
-	color: #b70303;
+	color: black;
 	text-align: center;
+	font-weight: 700;
 }
 
 #archnemesis{
+	color:#b70303;
 	float:right;
 	text-align: center;
 }
 
 .play{
-	background-color: #75d7ea;
+	/*background-color: #75d7ea;*/
+	/*background-color: red;*/
 	width: 130px;
 	border-radius: 5px;
 
@@ -78,6 +84,7 @@ p{
 	padding-top: 3px;
 	padding-bottom: 5px;
 	font-size: 70%;
+	color:black;
 }
 
 button{

@@ -58,7 +58,7 @@ console.log(Object.values(charstrength));
       $("#characters").html('<div id="enemies"> <h2>Enemies</h2>' +
         '<p>pick a nemesis to battle to the death</p> </div>');
     }
-    else{
+    else if (nemesis === undefined){
       //if it is not the first char selected it is the nemesis
 
       nemesis = this.value;
@@ -68,6 +68,9 @@ console.log(Object.values(charstrength));
 
       $("#battlefield").show();
       $("#attack").show();
+    }
+    else{
+      console.log("you already chose");
     }
 });
 
@@ -126,6 +129,7 @@ $("#attack").on("click", function() {
     $("#archnemesis").html("");
     $("#archnemesis").append('<p>you defeated your nemesis!</p>' + '<p>pick a new one.</p>')
     $("#heropnts").text(150);
+    nemesis = undefined;
   }
   else{
     

@@ -5,6 +5,10 @@ var hero;
 var nemesis;
 var charoptions = ["chihiro", "haku", "yubaba", "noface", "boh"];
 var charstrength = {};
+var nemesisSel = [];
+ 
+//var resetChar = $("#selectChar").find(`[value='${hero}']`);//$("#selectChar").find(".char");
+
 
 function getStrength(){
   for (i=0; i<charoptions.length; i++){
@@ -20,24 +24,30 @@ function reset(){
   getStrength();
   console.log(Object.keys(charstrength));
   console.log(Object.values(charstrength));
+  $("#selectChar").find(`[value='${hero}']`).show();
+  for (i=0; i<nemesisSel.length; i++){
+    $("#selectChar").find(`[value='${nemesisSel[i]}']`).show();
+  }
   hero=undefined;
   nemesis=undefined;
   $("#characters").html('<h2>Characters</h2>'+
   '<p>click on the character you want to play</p>');
+  //$("#selectChar").append(resetChar);
   $("#hero").html("");
   $("#archnemesis").html("");
-  $("#battlefield").hide();//$("#attackvis").hide();
+  $("#battlefield").hide();
+  nemesisSel = [];
   //$("#battlefield").html('<h2>Battlefield</h2>');
   //when the game is reset the attack button no longer works
 };
 
 
-function playBtn(idword){
+function playBtn(idword, id){
       var Btn = $("<button>")
       Btn.addClass("playagain");
       Btn.attr("id", idword);
       Btn.text(idword);
-      $("#gameOver").append(Btn);
+      $(id).append(Btn);
 };
 
 getStrength();
@@ -55,6 +65,9 @@ console.log(Object.values(charstrength));
         +hero+'.jpg" alt="this is a character"> <p class="points">points:'+
         ' <div id="heropnts" class="points">150</div> </p></div>');
 
+      //$("#selectChar").find(`[value='${hero}']`).remove();
+      $("#selectChar").find(`[value='${hero}']`).hide();
+
       $("#characters").html('<div id="enemies"> <h2>Enemies</h2>' +
         '<p>pick a nemesis to battle to the death</p> </div>');
     }
@@ -62,9 +75,13 @@ console.log(Object.values(charstrength));
       //if it is not the first char selected it is the nemesis
 
       nemesis = this.value;
+      nemesisSel.push(nemesis);
+      console.log(nemesisSel + "length " + nemesisSel.length);
       $("#archnemesis").html('<h2>Nemesis</h2><div style= "background-color: #b70303;" class="play"><img class="charimg"' +
        'src="images/'+nemesis+'.jpg" alt="this is a character">' +
        ' <p class="points">points: <div id="nemesispnts" class="points">150</div> </p></div>');
+
+      $("#selectChar").find(`[value='${nemesis}']`).hide();
 
       $("#battlefield").show();
       $("#attack").show();
@@ -113,12 +130,12 @@ $("#attack").on("click", function() {
   if(heropnts<=0){
     $("#attack").hide();
     $("#battlefield").append('<div id="gameOver"><h2>game over!</h2><p>Play Again?</p></div>');
-    playBtn("yes");
+    playBtn("yes", "#gameOver");
     $("#yes").on("click", function (){
         $("#gameOver").remove();
         reset();
     })
-    playBtn("no");
+    playBtn("no", "#gameOver");
     $("#no").on("click", function (){
         $("#battlefield").html("<h1>Goodbye</h1>");
     })
@@ -126,16 +143,24 @@ $("#attack").on("click", function() {
   }
   //check for a win in this function maybe?
   else if(nemesispnts<=0){
+    if(nemesisSel.length >= 4){
+    $("#battlefield").append('<div id="playAgain"><p>Play Again?</p></div>');      
+      playBtn("yes", "#playAgain");
+      $("#yes").on("click", function (){
+          $("#playAgain").remove();
+          reset();
+      })
+      playBtn("no", "#playAgain");
+      $("#no").on("click", function (){
+          $("#playAgain").html("<h1>Goodbye</h1>");
+      })
+    }
     $("#archnemesis").html("");
-    $("#archnemesis").append('<p>you defeated your nemesis!</p>' + '<p>pick a new one.</p>')
+    $("#archnemesis").append('<br><br><br><p>you defeated</p><p>your nemesis!</p>' + '<p>pick a new one.</p>');
     $("#heropnts").text(150);
     nemesis = undefined;
   }
   else{
-    
-    /*create buttons and ask if they want to play again
-    on(click) function for yes resets the game
-    on(click function for no says goodbye*/
     console.log("i dont know");
   }
 
